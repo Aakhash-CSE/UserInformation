@@ -1,0 +1,49 @@
+<mat-sidenav-container autosize class="animated fadeIn">
+
+  <mat-sidenav #sidenav mode="side" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)" class="sideNav" [ngStyle]="{ 'width.em': sidenavWidth }">
+
+    <mat-nav-list [ngStyle]="{ 'width.em': sidenavWidth }">
+
+      <mat-list-item>
+        <div class=" sideNavMenuHead" *ngIf="sidenavWidth > 6">
+         Menu
+        </div>
+      </mat-list-item>
+
+      <app-menu></app-menu>
+
+      <button class="sideNavExpandButton" [ngStyle]="{ 'margin-left.em': sidenavWidth-4 }" (click)="toggleSideNav(sidenav)"
+        mat-mini-fab color="warn">
+        <mat-icon mat-list-icon>
+          <span>{{sideNavFootIcon}}</span>
+        </mat-icon>
+      </button>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div class="main_container" fxLayout="column" fxLayoutGap="0px" style="height:100vh;" >
+      
+      <mat-toolbar class="topMenu">
+          <button class="SideNavHeadIcon" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <span class="menuTitle">Information</span>
+  
+          <!-- <mat-icon  (click) ="openBottomSheet()"  class="iconleft mat-dialog-actions"  >message</mat-icon> -->
+     
+          <span class=" username">Aakhash</span>
+         
+      </mat-toolbar>
+      
+      <router-outlet></router-outlet>
+
+    </div>
+   
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

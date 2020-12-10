@@ -1,0 +1,263 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+$colors:(
+    adminPrimary:  #00ccff,
+    primary:#17202A,
+    basic:#FFFFFF,
+    basicDark: black,
+    grayFrame: gray,
+    lightPrimary: lighten( #06D6A0, 40% ),//A6D3A0
+    darkPrimary: darken( #06D6A0, 40% ),
+    pageBackground: #f1f3f6,
+    error: red,
+    pagehead: #48BF84,
+    cardBackground : #464646,
+    fontWhite :#FFFFFF,
+    card1:#F433AB,
+    card2:#00D9C0,
+    card3:#F19A3E,
+    card4:#1B98E0,
+    card5:#EC4E20,
+    card6:#C39BD3 , 
+    New: #0074D9,
+    Processing: #FF4136,
+    Completed: #2ECC40,
+    OrderStatus:  #F39C12 ,
+    MatTableHeader :#708090 ,
+    MatRowColor :#D6DBDF,
+    MatOnHoverColor:#85C1E9,   
+    AddButton: #C3BEF7,
+    ActiveTab :#2F4F4F
+);
+
+
+$padding: (
+    normal: 10px,
+    low: 5px,
+    high: 20px
+);
+.Cardheadercolor{
+    background-color: #0074D9;
+}
+.DashBoardCardHeader{   
+    font-size: 12px;
+   font-weight: 600 !important;
+   color: #FFFFFF;
+   .mat-card-title{
+       font-size: 18px !important;
+       font-weight: bold !important;
+       margin-top: 2px !important;
+       margin-bottom: 2px !important;
+   }
+}
+.headercenter{
+    justify-content: center;
+}
+.matpad{
+    padding: 5px !important;
+}
+
+
+$fontSize: (
+    tiny: 5px,
+    small: 8px,
+    normal: 10px,
+    medium :11px,
+    subheading: 12px,
+    altsize: 15px,
+    heading: 18px,
+    popupHead:25px,
+    footerText:19px
+);
+
+@function color( $color-name ){
+    @return map-get($colors, $color-name )
+};
+
+@function Padding( $pad-val ){
+    @return map-get( $padding, $pad-val )
+};
+
+@function FontSize( $font-size ){
+    @return map-get( $fontSize, $font-size )
+};
+
+
+$desktop: 960px;
+
+@mixin desktop {
+    @media ( min-width: #{$desktop} ){
+        @content;
+    }
+}
+
+//exceeded content
+.Exceed{
+    display: inline-block;
+    width: 20%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+
+//common faded background
+.Background{
+    background-color: color(pageBackground);
+    height: 92.5vh;
+}
+
+
+  //Scroller Bar Design
+
+::-webkit-scrollbar {
+    width: 5px;
+    height : 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(77, 134, 172); 
+   border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #195774; 
+}
+  
+ 
+
+.ReadyForDelivery{
+font-size: FontSize(heading);;
+font-weight: bold;
+background-color: color(New);
+color: color(basic);
+}
+.PreferenceColor{
+    color: color(card5);
+}
+
+//Global Mat Table Header Style
+.TableHeaderStyle{
+    background:color(MatTableHeader);
+    height: 35px !important;
+    .mat-header-cell{
+        color: color(basic);
+        font-size: 14px;
+    }
+}
+.pointer{
+    cursor: pointer;
+}
+
+//Global Mat Table Alternate Row Color
+
+.mat-row:nth-child(even){
+    background-color:color(MatRowColor);
+    }
+
+.mat-row:nth-child(odd){
+    background-color:color(basic);
+    }
+
+//Global Mat Sort Header Icon Color
+.mat-sort-header-arrow {
+        color: color(basic) !important;
+}
+//Global Mat Table ROw OnHover Color Change
+.mat-row:hover {
+    background-color: color(MatOnHoverColor);
+}
+.Menu{
+    .label{
+        padding-left: 20px !important;
+    }
+}
+
+.mat-row:nth-child(even){
+    background-color:color(MatRowColor);
+    }
+
+.mat-row:nth-child(odd){
+    background-color:color(basic);
+    }
+
+//Global Mat Sort Header Icon Color
+.mat-sort-header-arrow {
+        color: color(basic) !important;
+}
+//Global Mat Table ROw OnHover Color Change
+.mat-row:hover {
+    background-color: color(MatOnHoverColor);
+}
+//Header margin
+.headding{
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+}
+.custom-dialog-container .mat-dialog-container {
+    padding: 1px !important;
+}
+
+
+.CardHeader{
+    font-size: 12px;
+    font-weight: 900 !important;
+    color: #FFFFFF;
+    .mat-card-title{
+        font-size: 12px !important;
+        font-weight: bold !important;
+    }
+  }
+  .NewEmployee{
+    background-color: #0074D9;
+  }
+  .MeasureTable{
+    overflow: auto;
+    height: 40vh;
+        table{
+            width: 100%;
+            tr.mat-footer-row, tr.mat-row {
+                height: 40px;
+            }
+            .mat-column-unit{
+                width: 12% !important;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            ::ng-deep .mat-form-field-wrapper {
+               padding-bottom: 0;
+               padding-top :0;
+            }
+            ::ng-deep .mat-form-field-infix{
+                padding-top: 0px !important;
+                padding-bottom: 4px !important;
+            }
+        }
+}
+
+
+.mat-row:nth-child(even){
+    background-color:color(MatRowColor);
+    }
+
+.mat-row:nth-child(odd){
+    background-color:color(basic);
+    }
+
+
+.mat-sort-header-arrow {
+        color: color(basic) !important;
+}
+
+.mat-row:hover {
+    background-color: color(MatOnHoverColor);
+}

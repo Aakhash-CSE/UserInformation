@@ -1,0 +1,45 @@
+<div class="col-sm-12 mt-4">
+  <div class="row headercenter">
+    <div class="col-sm-12">
+      <mat-card class="matpad">
+        <mat-card-header class="Cardheadercolor headercenter">
+          <mat-card-title class="DashBoardCardHeader headding">Post</mat-card-title>
+        </mat-card-header>
+        <div class="col-sm-12 mt-1">
+          <div class="row MeasureTable">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z0">
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                <td mat-cell *matCellDef="let Posts">
+                  {{Posts.id}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="userId">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>User Id</th>
+                <td mat-cell *matCellDef="let Posts">
+                  {{Posts.userId}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+                <td mat-cell *matCellDef="let Posts">
+                  {{Posts.title}}
+                </td>
+              </ng-container>
+
+            
+
+              <tr class="TableHeaderStyle" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let Posts; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-12 paginationtop">
+            <mat-paginator [pageSizeOptions]="[5,10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
